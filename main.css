@@ -1,0 +1,57 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(250, 224, 228);
+}
+
+main
+{
+    max-width: 600px;
+    width: 80%; 
+    padding: 20px;
+    background-color: white;
+    border-radius: 6px;
+}
+
+h1
+{
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    color: coral;
+}
+
+textarea
+{
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: rgb(250, 224, 228);
+}
+
+ul 
+{
+  list-style-type: none;
+}
+
+li
+{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+/* text away form ckeckbox */
+li input[type="checkbox"] 
+{
+  margin-right: 10px;
+}
