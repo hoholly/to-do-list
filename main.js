@@ -16,16 +16,14 @@ function addTask()
 
         const editB = document.createElement('button');
         editB.textContent = 'Edit';
-        editB.classList.add('eb');
         editB.style.display = 'none';
 
         const deleteB = document.createElement('button');
         deleteB.textContent = 'Delete';
-        deleteB.classList.add('db');
         deleteB.style.display = 'none';
 
         deleteB.addEventListener('click', () => deleteTask(newTask));
-        editB.addEventListener('click', () => editTask(newTask, taskText));
+        editB.addEventListener('click', () => editTask(newTask, taskText, editB, deleteB));
         
         newTask.appendChild(checkbox);
         newTask.appendChild(taskText);
@@ -34,7 +32,6 @@ function addTask()
 
         newTask.addEventListener('click', () => choice(editB, deleteB));
 
-        
         taskList.appendChild(newTask);
 
         taskInput.value = '';
@@ -45,24 +42,30 @@ function choice(editB, deleteB)
 {
     editB.style.display = 'inline-block';
     deleteB.style.display = 'inline-block';
+
+    // buttons disappear after 2 sec
+    setTimeout(() => {
+        editB.style.display = 'none';
+        deleteB.style.display = 'none';
+    }, 2000);
 }
 
-function editTask(task, taskText)
+function editTask(task, taskText, editB, deleteB)
 {
     const newText = prompt("Edit your task:", taskText.textContent);
+    
     if (newText) 
     {
-        taskText.textContent = newText;
+        taskText.textContent = newText; 
     }
-    task.querySelector('.editb').style.display = 'none'; // Hide edit button after edit
-    task.querySelector('.deleteb').style.display = 'none'; // Hide delete button after edit
 }
 
-function deleTask()
+function deleteTask(task)
 {
     taskList.removeChild(task);
 }
 
+/*
 taskInput.addEventListener('keypress', function(e) {
     if (e.key === 'Enter' && taskInput.value.trim() === '') 
     {
@@ -70,6 +73,7 @@ taskInput.addEventListener('keypress', function(e) {
         taskList.appendChild(hr);
     }
 })
+*/
 
 taskInput.addEventListener('keypress', function(e) {
     if (e.key === 'Enter') 

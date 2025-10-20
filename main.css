@@ -53,5 +53,16 @@ li
 /* text away form ckeckbox */
 li input[type="checkbox"] 
 {
-  margin-right: 10px;
+    transform: scale(2);
+    margin-right: 15px;
+}
+
+li input[type="checkbox"]:hover
+{
+    cursor: pointer;
+}
+
+button
+{
+    background-color: bisque;
 }
